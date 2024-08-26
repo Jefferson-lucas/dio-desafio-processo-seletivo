@@ -28,19 +28,19 @@ public class AnaliseSalarial{
             int candidatoAtual = 0;
             double salarioBase = 2000.0;
 
-        while (candidatosSelecionados < 5 && candidatoAtual < candidatos.length) {
-            String candidato = candidatos[candidatoAtual];
-            double salarioPretendido = valorPretendido();
+         while (candidatosSelecionados < 5 && candidatoAtual < candidatos.length) {
+             String candidato = candidatos[candidatoAtual];
+             double salarioPretendido = valorPretendido();
 
-            System.out.println("O candidato " + candidato + " solicitou este valor de salário " + salarioPretendido);
+             System.out.println("O candidato " + candidato + " solicitou este valor de salário " + salarioPretendido);
 
-            if (salarioBase >= salarioPretendido) {
-                System.out.println("O candidato " + candidato + " foi selecionado para a vaga");
-                candidatosSelecionados++;
-            }
+             if (salarioBase >= salarioPretendido) {
+                 System.out.println("O candidato " + candidato + " foi selecionado para a vaga");
+                 candidatosSelecionados++;
+             }
 
             candidatoAtual++;
-        }
+         }
     }
 
     static double valorPretendido(){
