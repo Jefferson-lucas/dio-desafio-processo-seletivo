@@ -4,43 +4,42 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class AnaliseSalarial{
     public static void main(String[] args) {
-        selecaoCandidatos();
-        //imprimirSelecionados();
+        //selecaoCandidatos();
+        imprimirSelecionados();
     }
 
     static void imprimirSelecionados(){
-        String[] candidatos = {"FELIPE","MARCIA","JULIA","PAULO","AUGUSTO"};
-        System.out.println("imprimindo a lista de candiadtos informando o indice do elemento");
-
-        // for (int indice = 0; indice < candidatos.length; indice++){
-        //     System.out.println("O candidato de numero " + (indice + 1) + " é " + candidatos[indice]);
-        // }
-
+        String[] candidatos = selecaoCandidatos();
+        System.out.println("O(s) candidato(s) selecionado(s) para a vaga com base na proposta salarial foram:");
         for(String candidato : candidatos){
-            System.out.println("O candidato seleceionado foi: " + candidato);
+            if (candidato != null) {
+                System.out.println(candidato);
+            }
         }
     }
 
-    static void selecaoCandidatos(){
+    static String[] selecaoCandidatos(){
         String[] candidatos = {"FELIPE","MARCIA","JULIA","PAULO","AUGUSTO","MONICA","FABRICIO","MIRELA", "DANIELA","JORGE"};
+        String[] candidatosAprovados = new String[5];
 
-            int candidatosSelecionados = 0;
-            int candidatoAtual = 0;
-            double salarioBase = 2000.0;
+        int candidatosSelecionados = 0;
+        int candidatoAprovado = 0;
+        int candidatoAtual = 0;
+        double salarioBase = 2000.0;
 
          while (candidatosSelecionados < 5 && candidatoAtual < candidatos.length) {
              String candidato = candidatos[candidatoAtual];
              double salarioPretendido = valorPretendido();
 
-             System.out.println("O candidato " + candidato + " solicitou este valor de salário " + salarioPretendido);
-
              if (salarioBase >= salarioPretendido) {
-                 System.out.println("O candidato " + candidato + " foi selecionado para a vaga");
+                 candidatosAprovados[candidatoAprovado] = candidato;
                  candidatosSelecionados++;
+                 candidatoAprovado++;
              }
 
             candidatoAtual++;
          }
+         return candidatosAprovados;
     }
 
     static double valorPretendido(){
