@@ -4,8 +4,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class AnaliseSalarial{
     public static void main(String[] args) {
-         selecaoCandidatos();
-        //imprimirSelecionados();
+        //selecaoCandidatos();
+        imprimirSelecionados();
     }
 
     static void imprimirSelecionados(){
